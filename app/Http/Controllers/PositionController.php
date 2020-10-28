@@ -12,16 +12,16 @@ class PositionController extends Controller
 
         $data = Position::all();
 
-        return view('pages.show', [
+        return view('positions.show', [
             'positions' => $data,
         ]);
 
-        return view('pages.show');
+        return view('positions.show');
     }
 
     public function create()
     {
-        return view('pages.create');
+        return view('positions.create');
     }
 
     public function store()
@@ -36,12 +36,12 @@ class PositionController extends Controller
             'jabatan' => request('jabatan'),
             'slug' => $slug,
         ]);
-        return redirect()->route('pages.index');
+        return redirect()->route('positions.index');
     }
 
     public function edit(Position $position)
     {
-        return view('pages.edit', compact('position'));
+        return view('positions.edit', compact('position'));
     }
 
     public function update(Position $position)
@@ -56,13 +56,13 @@ class PositionController extends Controller
             'jabatan' => request('jabatan'),
             'slug' => $slug,
         ]);
-        return redirect()->route('pages.index');
+        return redirect()->route('positions.index');
     }
 
     public function destroy(Position $position)
     {
         $position->delete();
 
-        return redirect()->route('pages.index');
+        return redirect()->route('positions.index');
     }
 }

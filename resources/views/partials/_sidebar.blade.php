@@ -37,8 +37,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu</h6>
-                <a class="collapse-item" href="{{ route('pages.index') }}">Data Jabatan</a>
-                <a class="collapse-item" href="#">Data Karyawan</a>
+                <a class="collapse-item" href="{{ route('positions.index') }}">Data Jabatan</a>
+                <a class="collapse-item" href="{{ route('workers.index') }}">Data Karyawan</a>
                 <a class="collapse-item" href="#">Data Absensi</a>
             </div>
     </li>
