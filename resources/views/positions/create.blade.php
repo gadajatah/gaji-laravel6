@@ -28,7 +28,7 @@
         </div>
     </div>
 
-
+ 
 @endsection
 @section('scriptdata')
     <script>

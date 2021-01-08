@@ -19,9 +19,10 @@ class CreateWorkersTable extends Migration
             $table->string('jenkel');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->string('jabatan');
-            $table->string('gambar');
+            $table->unsignedBigInteger('position_id');
             $table->timestamps();
+
+            $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade');
         });
     }
 

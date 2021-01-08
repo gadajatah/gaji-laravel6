@@ -1,5 +1,8 @@
 <?php
 
+Auth::routes();
+
+
 Route::get('/', 'HomeController@index');
 
 Route::get('/jabatan', 'PositionController@index')->name('positions.index');
@@ -14,6 +17,6 @@ Route::post('/destroy-the-position/{position}', 'PositionController@destroy')->n
 
 
 
-
 Route::get('/karyawan', 'WorkerController@index')->name('workers.index');
 Route::get('/create-new-karyawan', 'WorkerController@create')->name('workers.create');
+Route::post('/create-new-karyawan', 'WorkerController@store');

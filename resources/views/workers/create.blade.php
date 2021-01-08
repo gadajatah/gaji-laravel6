@@ -3,6 +3,7 @@
 @section('title-2', 'Data Karyawan')
 @section('title-3', 'DataKar')
 @section('content')
+
     <div class="container">
         <div class="col-12">
             <div class="card mb-4">
@@ -10,50 +11,54 @@
                     <a href="{{ route('workers.index') }}" class="btn btn-warning"><i class="fas fa-undo-alt"></i> Back</a>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" aria-describedby="emailHelp"
-                                placeholder="Masukkan Nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Jenis Kelamin</label>
-                            <input type="text" class="form-control" id="jenkel" name="jenkel"
-                                placeholder="Masukkan jenis kelamin">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Tempat Lahir</label>
-                            <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir"
-                                placeholder="Masukkan Tempat Lahir">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Tanggal Lahir</label>
-                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
-                                placeholder="Masukkan Tanggal Lahir">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Jabatan</label>
-                            <input type="text" class="form-control" id="jabatan" name="jabatan"
-                                placeholder="Masukkan Jabatan">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Foto</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                    <form action="{{ route('workers.create') }}" method="post">
+                        @csrf
+                        <div class="form-group row">
+                            <label for="nama" class="col-sm-3 col-form-label">Nama</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="nama">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                        <div class="form-group row">
+                            <label for="jenkel" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="jenkel">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group row">
+                            <label for="tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="tempat_lahir">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="tanngal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="tanggal_lahir">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="position_id" class="col-sm-3 col-form-label">Jabatan</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select">
+                                    <option selected>Pilih Jabatan</option>
+                                    @foreach ($datas as $item)
+                                        <option value="{{ $item->id }}" name="position_id" id="position_id">
+                                            {{ $item->jabatan }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <button type=" submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+
+
 
 
 
